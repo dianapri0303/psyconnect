@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
+import 'modern-normalize/modern-normalize.css';
 import './globals.css';
 
 const manrope = Manrope({
