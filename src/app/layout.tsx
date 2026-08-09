@@ -3,6 +3,8 @@ import { Manrope } from 'next/font/google';
 import 'modern-normalize/modern-normalize.css';
 import './globals.css';
 
+import QueryProvider from '@/providers/QueryProvider';
+
 const manrope = Manrope({
   variable: '--font-manrope',
   subsets: ['latin'],
@@ -21,7 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={manrope.variable}>{children}</body>
+      <body className={manrope.variable}>
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   );
 }
