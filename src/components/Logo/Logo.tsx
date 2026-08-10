@@ -1,12 +1,22 @@
 import Link from 'next/link';
 import styles from './Logo.module.css';
 
-export default function Logo() {
+interface LogoProps {
+  size?: 'sm' | 'lg';
+}
+
+export default function Logo({ size = 'lg' }: LogoProps) {
+  const iconSize = size === 'lg' ? 24 : 20;
+
   return (
-    <Link href="/" className={styles.logo} aria-label="PsyConnect home">
+    <Link
+      href="/"
+      className={`${styles.logo} ${styles[size]}`}
+      aria-label="PsyConnect home"
+    >
       <svg
-        width="20"
-        height="20"
+        width={iconSize}
+        height={iconSize}
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

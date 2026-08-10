@@ -14,8 +14,14 @@
   display: block;
 }
 
-.text {
+.lg .text {
+  font-size: 24px;
   font-weight: 700;
+  line-height: 1.33;
+}
+
+.sm .text {
   font-size: 16px;
+  font-weight: 700;
   line-height: 1.5;
 }

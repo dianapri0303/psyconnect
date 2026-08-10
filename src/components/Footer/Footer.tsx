@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <Logo />
+        <Logo size="sm" />
         <p className={styles.copyright}>
           © 2025 PsyConnect. All rights reserved.
         </p>

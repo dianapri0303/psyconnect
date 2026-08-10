@@ -6,6 +6,7 @@ import styles from './layout.module.css';
 
 import QueryProvider from '@/providers/QueryProvider';
 import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={manrope.variable}>
         <QueryProvider>
           <div className={styles.wrapper}>
+            <Header />
             <main className={styles.main}>{children}</main>
             <Footer />
           </div>
