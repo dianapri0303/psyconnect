@@ -1,0 +1,27 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  transition: opacity var(--transition);
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logo svg {
+  display: block;
+}
+
+.lg .text {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.33;
+}
+
+.sm .text {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}

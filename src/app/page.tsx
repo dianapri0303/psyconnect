@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>PsyConnect</main>;
+  return <div>PsyConnect</div>;
 }
