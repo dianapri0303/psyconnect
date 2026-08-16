@@ -1,0 +1,132 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  border: 1px solid rgba(191, 201, 193, 0.3);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 8px 0 rgba(45, 106, 79, 0.04);
+}
+
+.card div {
+  background: linear-gradient(90deg, #eef1ef 25%, #f7faf8 50%, #eef1ef 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.header {
+  display: flex;
+  gap: 16px;
+  background: none !important;
+  animation: none !important;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-pill);
+  flex-shrink: 0;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  background: none !important;
+  animation: none !important;
+}
+
+.name {
+  width: 60%;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.meta {
+  width: 80%;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  background: none !important;
+  animation: none !important;
+}
+
+.tag {
+  width: 80px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.line {
+  width: 100%;
+  max-width: 512px;
+  height: 16px;
+  margin-top: 16px;
+  border-radius: 6px;
+}
+
+.lineShort {
+  width: 70%;
+  max-width: 380px;
+  height: 16px;
+  margin-top: 8px;
+  border-radius: 6px;
+}
+
+.conditions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  background: none !important;
+  animation: none !important;
+}
+
+.condition {
+  width: 90px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(191, 201, 193, 0.2);
+  background: none !important;
+  animation: none !important;
+}
+
+.price {
+  width: 110px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  background: none !important;
+  animation: none !important;
+}
+
+.button {
+  width: 126px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+}

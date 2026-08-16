@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { usePsychologists } from '@/hooks/usePsychologists';
 import PsychologistCard from '@/components/PsychologistCard/PsychologistCard';
 import FilterBar, { Filters } from '@/components/FilterBar/FilterBar';
+import SkeletonCard from '@/components/SkeletonCard/SkeletonCard';
+import EmptyState from '@/components/EmptyState/EmptyState';
 import styles from './page.module.css';
 
 const priceMap: Record<string, number | undefined> = {
@@ -33,6 +35,9 @@ export default function PsychologistsPage() {
 
   const psychologists = data?.pages.flatMap(page => page.items) ?? [];
 
+  const clearFilters = () =>
+    setFilters({ specialization: '', approach: '', price: '' });
+
   return (
     <div className={styles.container}>
       <div className={styles.titleWrapper}>
@@ -47,27 +52,47 @@ export default function PsychologistsPage() {
         <FilterBar filters={filters} onChange={setFilters} />
       </div>
 
-      {isError && <p>Something went wrong</p>}
+      {isError && <p className={styles.endMessage}>Something went wrong</p>}
 
-      <ul className={styles.list}>
-        {psychologists.map(item => (
-          <PsychologistCard key={item._id} psychologist={item} />
-        ))}
-      </ul>
-
-      {!isLoading && hasNextPage && (
-        <button
-          type="button"
-          className={styles.loadMore}
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-        >
-          {isFetchingNextPage ? 'Loading...' : 'Load more psychologists'}
-        </button>
+      {isLoading && (
+        <ul className={styles.list}>
+          {Array.from({ length: 4 }).map((_, index) => (
+            <SkeletonCard key={index} />
+          ))}
+        </ul>
       )}
 
-      {!isLoading && !hasNextPage && psychologists.length > 0 && (
-        <p className={styles.endMessage}>You&apos;ve seen all specialists.</p>
+      {!isLoading && !isError && psychologists.length === 0 && (
+        <div className={styles.empty}>
+          <EmptyState onClearFilters={clearFilters} />
+        </div>
+      )}
+
+      {!isLoading && psychologists.length > 0 && (
+        <>
+          <ul className={styles.list}>
+            {psychologists.map(item => (
+              <PsychologistCard key={item._id} psychologist={item} />
+            ))}
+          </ul>
+
+          {hasNextPage && (
+            <button
+              type="button"
+              className={styles.loadMore}
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+            >
+              {isFetchingNextPage ? 'Loading...' : 'Load more psychologists'}
+            </button>
+          )}
+
+          {!hasNextPage && (
+            <p className={styles.endMessage}>
+              You&apos;ve seen all specialists.
+            </p>
+          )}
+        </>
       )}
     </div>
   );
