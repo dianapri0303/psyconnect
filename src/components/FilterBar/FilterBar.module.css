@@ -1,0 +1,45 @@
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  border: 1px solid rgba(191, 201, 193, 0.3);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.dropdowns {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.clear {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+  color: #0f5238;
+  white-space: nowrap;
+  transition: opacity var(--transition);
+}
+
+.clear:hover {
+  opacity: 0.7;
+}
