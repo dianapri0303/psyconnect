@@ -6,7 +6,7 @@
 
 .list {
   display: flex;
-  gap: 186px;
+  gap: clamp(24px, 14vw, 186px);
   padding: 0 85px;
 }
 

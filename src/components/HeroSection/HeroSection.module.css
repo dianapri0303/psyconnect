@@ -10,8 +10,8 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
-  width: 632px;
-  flex-shrink: 0;
+  flex: 1 1 632px;
+  max-width: 632px;
   padding-top: 51px;
 }
 
@@ -69,9 +69,9 @@
 
 .imageWrapper {
   position: relative;
-  width: 632px;
+  flex: 1 1 632px;
+  max-width: 632px;
   height: 500px;
-  flex-shrink: 0;
   border: 1px solid rgba(191, 201, 193, 0.2);
   border-radius: 32px;
   background-color: var(--color-surface-muted);
