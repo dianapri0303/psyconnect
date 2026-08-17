@@ -1,8 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import Image from 'next/image';
 import { Psychologist } from '@/types/psychologist';
+import { useAuthStore } from '@/store/authStore';
+import { useFavoritesStore } from '@/store/favoritesStore';
+import { useToggleFavorite } from '@/hooks/useFavorites';
 import {
   HeartIcon,
   StarSmallIcon,
@@ -12,6 +16,7 @@ import {
   ChevronUpIcon,
   FreeSessionIcon,
 } from '../icons/CardIcons';
+import SignInToast from '../SignInToast/SignInToast';
 import styles from './PsychologistCard.module.css';
 
 interface Props {
@@ -21,7 +26,12 @@ interface Props {
 export default function PsychologistCard({ psychologist }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const isLoggedIn = useAuthStore(state => state.isLoggedIn);
+  const ids = useFavoritesStore(state => state.ids);
+  const { mutate: toggleFavorite } = useToggleFavorite();
+
   const {
+    _id,
     name,
     avatar_url,
     specialization,
@@ -36,6 +46,16 @@ export default function PsychologistCard({ psychologist }: Props) {
     initial_consultation,
   } = psychologist;
 
+  const isFavorite = ids.includes(_id);
+
+  const handleHeartClick = () => {
+    if (!isLoggedIn) {
+      toast.custom(t => <SignInToast t={t} />, { duration: 4000 });
+      return;
+    }
+    toggleFavorite({ id: _id, isFavorite });
+  };
+
   return (
     <li
       className={`${styles.card} ${initial_consultation ? styles.cardWithBadge : ''}`}
@@ -49,10 +69,11 @@ export default function PsychologistCard({ psychologist }: Props) {
 
       <button
         type="button"
-        className={styles.heartButton}
-        aria-label="Add to favorites"
+        className={`${styles.heartButton} ${isFavorite ? styles.heartActive : ''}`}
+        onClick={handleHeartClick}
+        aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
       >
-        <HeartIcon />
+        <HeartIcon filled={isFavorite} />
       </button>
 
       <div className={styles.header}>
