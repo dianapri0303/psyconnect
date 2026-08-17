@@ -48,6 +48,10 @@
   color: var(--color-text);
 }
 
+.labelError {
+  color: var(--color-error);
+}
+
 .inputWrapper {
   position: relative;
   display: flex;
@@ -60,6 +64,10 @@
   display: flex;
   color: var(--color-text-muted);
   pointer-events: none;
+}
+
+.inputIconError {
+  color: var(--color-error);
 }
 
 .input {

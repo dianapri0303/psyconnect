@@ -88,6 +88,24 @@ export function EyeOffIcon() {
   );
 }
 
+export function PhoneIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.13.36 2.34.56 3.58.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.06 21 3 13.94 3 5.24a1 1 0 0 1 1-1H8a1 1 0 0 1 1 1c0 1.24.2 2.45.56 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export function ErrorIcon() {
   return (
     <svg

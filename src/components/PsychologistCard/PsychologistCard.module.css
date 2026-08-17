@@ -9,6 +9,14 @@
   box-shadow: 0 2px 8px 0 rgba(45, 106, 79, 0.04);
 }
 
+.cardCollapsed {
+  height: 353px;
+}
+
+.cardExpanded {
+  min-height: 353px;
+}
+
 .cardWithBadge {
   padding-top: 16px;
 }

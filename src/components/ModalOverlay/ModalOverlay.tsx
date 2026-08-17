@@ -9,12 +9,14 @@ interface Props {
   onClose: () => void;
   children: React.ReactNode;
   variant?: 'light' | 'white';
+  size?: 'default' | 'wide';
 }
 
 export default function ModalOverlay({
   onClose,
   children,
   variant = 'white',
+  size = 'default',
 }: Props) {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -38,7 +40,7 @@ export default function ModalOverlay({
       }}
     >
       <div
-        className={`${styles.modal} ${variant === 'light' ? styles.modalLight : ''}`}
+        className={`${styles.modal} ${variant === 'light' ? styles.modalLight : ''} ${size === 'wide' ? styles.modalWide : ''}`}
         role="dialog"
         aria-modal="true"
       >

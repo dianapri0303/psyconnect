@@ -10,6 +10,7 @@ import SessionProvider from '@/providers/SessionProvider';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import AuthModal from '@/components/AuthModal/AuthModal';
+import BookingModal from '@/components/BookingModal/BookingModal';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -38,6 +39,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <AuthModal />
+          <BookingModal />
           <Toaster
             position="bottom-right"
             containerStyle={{ bottom: 17, right: 16 }}

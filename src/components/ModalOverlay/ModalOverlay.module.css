@@ -31,6 +31,25 @@
   background-color: var(--color-surface);
 }
 
+.modalWide {
+  max-width: 587px;
+  max-height: 90vh;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  overflow-y: auto;
+  background: #f7faf8;
+  box-shadow:
+    0 4px 6px -4px rgba(0, 57, 37, 0.1),
+    0 10px 15px -3px rgba(0, 57, 37, 0.1);
+}
+
+.modalWide .closeButton {
+  top: 17px;
+  right: 16px;
+  z-index: 2;
+}
+
 .modalLight {
   border-radius: 12px;
   background-color: #f1f4f2;

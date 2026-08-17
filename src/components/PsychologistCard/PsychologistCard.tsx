@@ -7,6 +7,7 @@ import { Psychologist } from '@/types/psychologist';
 import { useAuthStore } from '@/store/authStore';
 import { useFavoritesStore } from '@/store/favoritesStore';
 import { useToggleFavorite } from '@/hooks/useFavorites';
+import { useBookingStore } from '@/store/bookingStore';
 import {
   HeartIcon,
   StarSmallIcon,
@@ -29,7 +30,7 @@ export default function PsychologistCard({ psychologist }: Props) {
   const isLoggedIn = useAuthStore(state => state.isLoggedIn);
   const ids = useFavoritesStore(state => state.ids);
   const { mutate: toggleFavorite } = useToggleFavorite();
-
+  const openBooking = useBookingStore(state => state.openBooking);
   const {
     _id,
     name,
@@ -56,9 +57,27 @@ export default function PsychologistCard({ psychologist }: Props) {
     toggleFavorite({ id: _id, isFavorite });
   };
 
+  const handleBookClick = () => {
+    if (!isLoggedIn) {
+      toast.custom(
+        t => (
+          <SignInToast
+            t={t}
+            title="Login required"
+            text="Please log in or create an account to book a session with this specialist."
+          />
+        ),
+        { duration: 4000 },
+      );
+      return;
+    }
+
+    openBooking({ id: _id, name, avatar_url });
+  };
+
   return (
     <li
-      className={`${styles.card} ${initial_consultation ? styles.cardWithBadge : ''}`}
+      className={`${styles.card} ${isExpanded ? styles.cardExpanded : styles.cardCollapsed} ${initial_consultation ? styles.cardWithBadge : ''}`}
     >
       {initial_consultation && (
         <span className={styles.freeBadge}>
@@ -192,7 +211,11 @@ export default function PsychologistCard({ psychologist }: Props) {
             {isExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
           </button>
 
-          <button type="button" className={styles.bookButton}>
+          <button
+            type="button"
+            className={styles.bookButton}
+            onClick={handleBookClick}
+          >
             Book a session
           </button>
         </div>

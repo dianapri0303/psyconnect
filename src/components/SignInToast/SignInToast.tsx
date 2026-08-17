@@ -6,9 +6,17 @@ import styles from './SignInToast.module.css';
 
 interface Props {
   t: Toast;
+  title?: string;
+  text?: string;
+  actionLabel?: string;
 }
 
-export default function SignInToast({ t }: Props) {
+export default function SignInToast({
+  t,
+  title = 'Sign in required',
+  text = 'Please log in or create an account to save specialists to your favorites.',
+  actionLabel = 'Log In',
+}: Props) {
   const openLogin = useModalStore(state => state.openLogin);
 
   return (
@@ -51,11 +59,8 @@ export default function SignInToast({ t }: Props) {
       </span>
 
       <div className={styles.content}>
-        <p className={styles.title}>Sign in required</p>
-        <p className={styles.text}>
-          Please log in or create an account to save specialists to your
-          favorites.
-        </p>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.text}>{text}</p>
         <button
           type="button"
           className={styles.loginButton}
@@ -64,7 +69,7 @@ export default function SignInToast({ t }: Props) {
             openLogin();
           }}
         >
-          Log In
+          {actionLabel}
         </button>
       </div>
     </div>
