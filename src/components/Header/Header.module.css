@@ -1,0 +1,169 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  background: rgba(247, 250, 248, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.link {
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.active {
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.loginButton,
+.signupButton {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+.loginButton {
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.loginButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.signupButton {
+  border: none;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 57, 37, 0.2);
+}
+
+.signupButton:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.welcome {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+}
+
+.logoutButton {
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.logoutButton:hover {
+  color: var(--color-primary);
+}
+
+.authSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 38px;
+}
+
+.skeletonAvatar,
+.skeletonText {
+  background: linear-gradient(90deg, #eef1ef 25%, #f7faf8 50%, #eef1ef 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+.skeletonAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-pill);
+}
+
+.skeletonText {
+  width: 130px;
+  height: 16px;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
