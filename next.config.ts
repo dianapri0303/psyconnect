@@ -4,10 +4,8 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'randomuser.me',
-      },
+      { protocol: 'https', hostname: 'randomuser.me' },
+      { protocol: 'https', hostname: 'ftp.goit.study' },
     ],
   },
 };

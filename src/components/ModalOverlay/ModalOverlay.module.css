@@ -1,0 +1,58 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: rgba(0, 0, 0, 0.73);
+  animation: fadeIn 200ms ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 464px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px;
+  border: 1px solid rgba(191, 201, 193, 0.3);
+  border-radius: 16px;
+  background-color: var(--color-surface);
+}
+
+.modalLight {
+  border-radius: 12px;
+  background-color: #f1f4f2;
+}
+
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: none;
+  color: #404943;
+  transition: background-color var(--transition);
+}
+
+.closeButton:hover {
+  background-color: rgba(191, 201, 193, 0.3);
+}
