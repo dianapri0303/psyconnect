@@ -68,13 +68,18 @@ export default function LoginForm() {
         }}
       >
         {({ isSubmitting, errors, touched }) => (
-          <Form className={styles.form}>
+          <Form className={styles.form} noValidate>
             <div className={styles.field}>
-              <label htmlFor="login-email" className={styles.label}>
+              <label
+                htmlFor="login-email"
+                className={`${styles.label} ${errors.email && touched.email ? styles.labelError : ''}`}
+              >
                 Email
               </label>
               <div className={styles.inputWrapper}>
-                <span className={styles.inputIcon}>
+                <span
+                  className={`${styles.inputIcon} ${errors.email && touched.email ? styles.inputIconError : ''}`}
+                >
                   <MailIcon />
                 </span>
                 <Field
@@ -96,11 +101,16 @@ export default function LoginForm() {
             </div>
 
             <div className={styles.field}>
-              <label htmlFor="login-password" className={styles.label}>
+              <label
+                htmlFor="login-password"
+                className={`${styles.label} ${errors.password && touched.password ? styles.labelError : ''}`}
+              >
                 Enter your password
               </label>
               <div className={styles.inputWrapper}>
-                <span className={styles.inputIcon}>
+                <span
+                  className={`${styles.inputIcon} ${errors.password && touched.password ? styles.inputIconError : ''}`}
+                >
                   <LockIcon />
                 </span>
                 <Field

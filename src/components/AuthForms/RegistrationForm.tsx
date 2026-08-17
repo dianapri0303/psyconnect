@@ -66,13 +66,18 @@ export default function RegistrationForm() {
         }}
       >
         {({ isSubmitting, errors, touched }) => (
-          <Form className={styles.form}>
+          <Form className={styles.form} noValidate>
             <div className={styles.field}>
-              <label htmlFor="register-name" className={styles.label}>
+              <label
+                htmlFor="register-name"
+                className={`${styles.label} ${errors.name && touched.name ? styles.labelError : ''}`}
+              >
                 Name
               </label>
               <div className={styles.inputWrapper}>
-                <span className={styles.inputIcon}>
+                <span
+                  className={`${styles.inputIcon} ${errors.name && touched.name ? styles.inputIconError : ''}`}
+                >
                   <UserIcon />
                 </span>
                 <Field
@@ -94,11 +99,16 @@ export default function RegistrationForm() {
             </div>
 
             <div className={styles.field}>
-              <label htmlFor="register-email" className={styles.label}>
+              <label
+                htmlFor="register-email"
+                className={`${styles.label} ${errors.email && touched.email ? styles.labelError : ''}`}
+              >
                 Email
               </label>
               <div className={styles.inputWrapper}>
-                <span className={styles.inputIcon}>
+                <span
+                  className={`${styles.inputIcon} ${errors.email && touched.email ? styles.inputIconError : ''}`}
+                >
                   <MailIcon />
                 </span>
                 <Field
@@ -120,11 +130,16 @@ export default function RegistrationForm() {
             </div>
 
             <div className={styles.field}>
-              <label htmlFor="register-password" className={styles.label}>
+              <label
+                htmlFor="register-password"
+                className={`${styles.label} ${errors.password && touched.password ? styles.labelError : ''}`}
+              >
                 Create a password
               </label>
               <div className={styles.inputWrapper}>
-                <span className={styles.inputIcon}>
+                <span
+                  className={`${styles.inputIcon} ${errors.password && touched.password ? styles.inputIconError : ''}`}
+                >
                   <LockIcon />
                 </span>
                 <Field
