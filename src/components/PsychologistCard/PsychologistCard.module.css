@@ -317,3 +317,7 @@
 .bookButton:hover {
   background-color: var(--color-primary-hover);
 }
+
+.heartActive {
+  color: var(--color-text-muted);
+}
